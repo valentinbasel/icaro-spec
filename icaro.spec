@@ -34,7 +34,8 @@ Requires:	python-tools
 Requires:	sugar-turtleart
 Requires:	pyserial
 Requires:	sugar
-Requires:	hicolor-icon-theme
+#Requires:	hicolor-icon-themei
+Requires:	python-matplotlib
 #Requires:	gnome-python2-rsvg
 
 %description
@@ -57,7 +58,9 @@ and programming fundamentals.
 #echo "# Just a comment" > pic16/np05/tmp/stdout
 
 # fix spurious permissions in this files
-chmod -v 0644 README COPYING AUTHORS COPYING-LGPLv2
+#chmod -v 0644 README.md COPYING AUTHORS COPYING-LGPLv2
+chmod -v 0644 COPYING AUTHORS COPYING-LGPLv2
+
 
 %build
 #Nothing to build
@@ -155,7 +158,7 @@ fi
 
 
 %files -f %{name}.lang
-%doc README COPYING AUTHORS COPYING-LGPLv2 
+%doc COPYING AUTHORS COPYING-LGPLv2 
 #README.ENG 
 %dir %{_datadir}/%{name}/
 %{_datadir}/%{name}/*.py*
@@ -213,6 +216,8 @@ fi
 %{_datadir}/%{name}/hardware/icaro/micro/firmware/source/pilas/*.c
 
 %{_datadir}/%{name}/hardware/icaro/micro/firmware/source/tortucaro/*.c
+%{_datadir}/%{name}/hardware/icaro/micro/firmware/source/icaroblue/*.c
+
 
 %{_datadir}/%{name}/hardware/icaro/*.py
 
@@ -267,6 +272,7 @@ fi
 %config(noreplace) %{_sysconfdir}/udev/rules.d/41-microchip.rules
 %config(noreplace) %{_sysconfdir}/udev/rules.d/99-serial.rules
 %config(noreplace) %{_sysconfdir}/udev/rules.d/026-microchip.rules
+%config(noreplace) %{_sysconfdir}/udev/rules.d/99-mm-usb-device-blacklist.rules
 
 %changelog
 * Sat Jan 10 2015 Eduardo Echeverria <echevemaster@gmail.com>  - 1.0.4-1

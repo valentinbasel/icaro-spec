@@ -14,7 +14,7 @@ cp icaro.spec ~/rpmbuild/SPECS/
 
 # tomo el SHA del ultimo commit 
 cd icaro/
-git checkout devel
+git checkout master
 git=$(git rev-parse HEAD)
 
 # borro el rpm y voy al SOURCE
